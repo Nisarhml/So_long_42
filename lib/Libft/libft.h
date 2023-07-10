@@ -6,7 +6,7 @@
 /*   By: nihamila <nihamila@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:05:50 by nihamila          #+#    #+#             */
-/*   Updated: 2023/04/07 17:02:24 by nihamila         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:00:13 by nihamila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {

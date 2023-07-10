@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nihamila <nihamila@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 15:24:26 by nihamila          #+#    #+#             */
-/*   Updated: 2023/07/10 14:57:21 by nihamila         ###   ########.fr       */
+/*   Created: 2023/07/05 18:15:53 by nihamila          #+#    #+#             */
+/*   Updated: 2023/07/10 16:36:23 by nihamila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../so_long.h"
 
-# include "./lib/libft/libft.h"
-# include "./lib/ft_printf/ft_printf.h"
-# include "./lib/get_next_line/get_next_line_bonus.h"
+int	check_if_ber(int argc, char **argv)
+{
+	int size;
 
-typedef struct s_map {
+	size = ft_strlen(argv[1]);
 	
-	char	**cpy_map;
-
-}	t_map;
-
-int	check_if_ber(int argc, char **argv);
-
-# endif
+	if (argc < 2)
+		return (0);
+	if (argv[1][size - 4] != '.' || argv[1][size - 3] != 'b'
+		|| argv[1][size - 2] != 'e' || argv[1][size - 1] != 'r')
+		ft_printf("error, the file you choose is not a .ber\n");
+	return (0);
+}

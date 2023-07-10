@@ -6,7 +6,7 @@
 #    By: nihamila <nihamila@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 15:23:21 by nihamila          #+#    #+#              #
-#    Updated: 2023/07/04 18:17:49 by nihamila         ###   ########.fr        #
+#    Updated: 2023/07/10 15:16:00 by nihamila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,13 @@ NAME			= so_long
 
 CFLAGS			= -Wall -Wextra -Werror
 
-LIBS			= -L$(LIB_DIR) -lft -lftprintf -lftget_next_line
+LIBS			= ./lib/libft/libft.a
 
-SRCS			= $(addprefix $(SRC_DIR)/, ) 
+SRCS			= $(addprefix $(SRC_DIR)/, parsing.c main.c)
 
 OBJS			= $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
+
+OBJS =			$(SRCS:.c=.o)
 
 DEPS			= $(addprefix $(INC_DIR)/, so_long.h)
 
@@ -39,20 +41,14 @@ all:			$(NAME)
 
 $(NAME):		$(OBJS)
 				make -C $(LIB_DIR)/libft
-				make -C $(LIB_DIR)/ft_printf
-				make -C $(LIB_DIR)/get_next_line
 				$(CC) $(CFLAGS) $(LIBS) $(OBJS) -o $@
 
 clean:
 				make clean -C $(LIB_DIR)/libft
-				make clean -C $(LIB_DIR)/ft_printf
-				make -C $(LIB_DIR)/get_next_line
 				$(RM) $(OBJS)
 
 fclean:
 				make fclean -C $(LIB_DIR)/libft
-				make fclean -C $(LIB_DIR)/ft_printf
-				make -C $(LIB_DIR)/get_next_line
 				$(RM) $(OBJS)
 				$(RM) $(NAME)
 
