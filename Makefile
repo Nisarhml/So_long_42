@@ -6,7 +6,7 @@
 #    By: nihamila <nihamila@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 15:23:21 by nihamila          #+#    #+#              #
-#    Updated: 2023/07/10 15:16:00 by nihamila         ###   ########.fr        #
+#    Updated: 2023/07/11 16:36:54 by nihamila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CFLAGS			= -Wall -Wextra -Werror
 
 LIBS			= ./lib/libft/libft.a
 
-SRCS			= $(addprefix $(SRC_DIR)/, parsing.c main.c)
+SRCS			= $(addprefix $(SRC_DIR)/, parsing.c parsing_utils.c main.c)
 
 OBJS			= $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
