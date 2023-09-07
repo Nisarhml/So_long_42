@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nihamila <nihamila@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:15:53 by nihamila          #+#    #+#             */
-/*   Updated: 2023/07/11 16:16:58 by nihamila         ###   ########.fr       */
+/*   Updated: 2023/08/31 22:53:50 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	check_if_ber(int argc, char **argv)
 {
@@ -79,9 +79,6 @@ void	init_map(t_map *map, char *str)
 		i++;
 		map->full_map[i] = get_next_line(fd); 
 	}
-	//i = -1;
-	//while (++i < map->line)
-		//ft_printf("%s", map->full_map[i]);
 	map->full_map[i] = 0;
 	close(fd);
 }

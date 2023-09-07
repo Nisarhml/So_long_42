@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nihamila <nihamila@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:16:39 by nihamila          #+#    #+#             */
-/*   Updated: 2023/07/11 17:22:29 by nihamila         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:51:21 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	count_valid_char(t_map *map, int c, int e, int p)
 {

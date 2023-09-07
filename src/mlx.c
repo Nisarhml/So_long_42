@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 15:51:23 by nihamila          #+#    #+#             */
-/*   Updated: 2023/08/31 22:54:57 by nisarhamila      ###   ########.fr       */
+/*   Created: 2023/09/06 14:51:49 by nisarhamila       #+#    #+#             */
+/*   Updated: 2023/09/06 14:56:19 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	put_player(t_map *map, int y, int x)
 {
-	t_map map;
-	
-	check_if_ber(argc, argv);
-	count_line(&map,argv[1]);
-	init_map(&map, argv[1]);
-	check_valid_char(&map);
-	count_valid_char(&map, 0, 0, 0);
-	check_if_square(&map);
-	check_if_closed(&map);
-	copy_map(&map, argv[1]);
-	check_valid_path(&map);
-	check_after_fill(&map);
-	return (0);
+	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr,
+		map->player, y * 64, x * 64);
 }
+

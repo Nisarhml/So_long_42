@@ -3,55 +3,85 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nihamila <nihamila@student.42nice.fr>      +#+  +:+       +#+         #
+#    By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 15:23:21 by nihamila          #+#    #+#              #
-#    Updated: 2023/07/11 16:36:54 by nihamila         ###   ########.fr        #
+#    Updated: 2023/08/31 22:18:33 by nisarhamila      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_DIR			= src
-OBJ_DIR			= obj
-INC_DIR			= include
-LIB_DIR			= lib
+NAME = so_long
 
-CC				= clang
+############################ * F I L E S * #####################################
 
-RM				= rm -f
+SRCS = 	src/main.c \
+		src/parsing.c\
+		src/parsing_utils.c\
+		src/fload_fill.c\
 
-NAME			= so_long
+OBJS = $(SRCS:.c=.o)
 
-CFLAGS			= -Wall -Wextra -Werror
+######################### * C O M P I L A T I O N * ##############################
+CC 				= gcc
+CFLAGS 			= -Werror -Wall -Wextra
+RM 				= rm -rf
+MAKE_EXT 		= @make -s --no-print-directory -C
+OBJ 			= ${OBJS}
+UNAME_S			= $(shell uname -s)
 
-LIBS			= ./lib/libft/libft.a
+LIBS 			= -L ./libft -lft -framework OpenGL -framework AppKit 
 
-SRCS			= $(addprefix $(SRC_DIR)/, parsing.c parsing_utils.c main.c)
+COMPIL			= $(CC) $(CFLAGS) ${OBJ} $(LIBS) -o $(NAME)
 
-OBJS			= $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
-OBJS =			$(SRCS:.c=.o)
+################################# * R U L E S * #####################################
+$(NAME):	${OBJ}
+			@printf $(blue)
+			@printf "\n"
+			@printf $(magenta)
+			$(MAKE_EXT) ./libft bonus
+			@$(COMPIL)
+			@printf $(reset)
 
-DEPS			= $(addprefix $(INC_DIR)/, so_long.h)
+all : $(NAME)
 
-$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(DEPS)
-				@mkdir -p $(OBJ_DIR)
-				$(CC) $(CFLAGS) -I$(INC_DIR) -I$(LIB_DIR) -c $< -o $@
-
-all:			$(NAME)
-
-$(NAME):		$(OBJS)
-				make -C $(LIB_DIR)/libft
-				$(CC) $(CFLAGS) $(LIBS) $(OBJS) -o $@
+%.o: %.c
+			@printf $(red)
+			@printf "\r\033[K⏳ Compilation de ""$(YEL)${notdir $<}$(EOC). ⏳"
+			@$(CC) -c $(CFLAGS) -o $@ $<
+			@printf $(reset)
 
 clean:
-				make clean -C $(LIB_DIR)/libft
-				$(RM) $(OBJS)
+			$(MAKE_EXT) ./libft bonus clean
+			@${RM} ${OBJ} 
+			@printf $(yellow)
+			@echo "🗑  $(GRE)Supression des fichiers binaires (.o).$(EOC) 🗑"
+			@printf $(reset)
 
-fclean:
-				make fclean -C $(LIB_DIR)/libft
-				$(RM) $(OBJS)
-				$(RM) $(NAME)
+fclean:		clean
+			$(MAKE_EXT) ./libft bonus fclean
+			@${RM} $(NAME)
+			@printf $(green)
+			@echo "🗑  $(YEL)Supression des executables et librairies.$(EOC) 🗑"
+			@printf $(reset)
 
-re:				fclean all
+re : fclean all
 
-.PHONY:			all clean fclean re
+.PHONY: 	all clean fclean re 
+
+black 				=	"[1;30m"
+red 				=	"[1;31m"
+green 				=	"[1;32m"
+yellow 				=	"[1;33m"
+blue 				=	"[1;34m"
+magenta 			=	"[1;35m"
+cyan 				=	"[1;36m"
+white 				=	"[1;37m"
+
+reset 				=	"[0m"
+
+RED		=	\033[31m
+GRE		=	\033[32m
+BLU		=	\033[34m
+YEL		=	\033[33m
+EOC		=	\033[0m
