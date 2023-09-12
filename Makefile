@@ -6,7 +6,7 @@
 #    By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 15:23:21 by nihamila          #+#    #+#              #
-#    Updated: 2023/08/31 22:18:33 by nisarhamila      ###   ########.fr        #
+#    Updated: 2023/09/12 17:28:27 by nisarhamila      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ SRCS = 	src/main.c \
 		src/parsing.c\
 		src/parsing_utils.c\
 		src/fload_fill.c\
+		src/mlx.c\
+		src/mlx_utils.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -29,10 +31,9 @@ MAKE_EXT 		= @make -s --no-print-directory -C
 OBJ 			= ${OBJS}
 UNAME_S			= $(shell uname -s)
 
-LIBS 			= -L ./libft -lft -framework OpenGL -framework AppKit 
+LIBS 			= -L ./libft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit 
 
-COMPIL			= $(CC) $(CFLAGS) ${OBJ} $(LIBS) -o $(NAME)
-
+COMPIL			= $(CC) $(CFLAGS) ${OBJ} libmlx.a $(LIBS) -o $(NAME)
 
 ################################# * R U L E S * #####################################
 $(NAME):	${OBJ}
@@ -48,7 +49,7 @@ all : $(NAME)
 %.o: %.c
 			@printf $(red)
 			@printf "\r\033[K⏳ Compilation de ""$(YEL)${notdir $<}$(EOC). ⏳"
-			@$(CC) -c $(CFLAGS) -o $@ $<
+			@$(CC) -c $(CFLAGS) -Imlx -o $@ $<
 			@printf $(reset)
 
 clean:

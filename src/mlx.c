@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:51:49 by nisarhamila       #+#    #+#             */
-/*   Updated: 2023/09/08 16:19:12 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/09/12 16:30:01 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	put_images_in_game(t_map *map)
 	map->items = mlx_xpm_file_to_image(map->mlx_ptr,
 					"./src/image/Bone_meat_2.xpm", &i, &j);
 	if(!map->floor || !map->wall || !map->player ||
-		!map->exit || !map->items);
+		!map->exit || !map->items)
 	{
 		free(map->win_ptr);
 		free(map->mlx_ptr);
@@ -75,7 +75,12 @@ int	adding_in_graphics(t_map *map)
 				put_items(map, j, i);
 			else if (map->full_map[i][j] == 'P')
 				put_player(map, j, i);
-			else if (map->full_map)
+			else if (map->full_map[i][j] == 'E')
+				mlx_put_image_to_window(map->mlx_ptr,
+					map->win_ptr, map->exit, j * 64, i * 64);
 		}
 	}
+	return (0);
 }
+
+
