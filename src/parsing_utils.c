@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:16:39 by nihamila          #+#    #+#             */
-/*   Updated: 2023/08/30 16:51:21 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/09/27 19:11:39 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	count_valid_char(t_map *map, int c, int e, int p)
 	int	i;
 	int	j;
 
-	i = - 1;
+	i = -1;
 	while (++i < map->line)
 	{
-		j = - 1;
+		j = -1;
 		while (++j < map->count_char)
 		{
 			if (map->full_map[i][j] == 'C')
@@ -52,7 +52,7 @@ void	check_if_square(t_map *map)
 {
 	int		i;
 	size_t	len;
-	
+
 	i = 0;
 	len = ft_strlen_mod(map->full_map[0]);
 	while (map->full_map[i])
@@ -71,26 +71,26 @@ void	check_if_closed(t_map *map)
 	int	i;
 	int	j;
 	int	size_line;
-	
-	i = - 1;
+
+	i = -1;
 	size_line = ft_strlen(map->full_map[0]) - 1;
 	while (++i < size_line)
 	{
 		if (map->full_map[0][i] != '1'
 			|| map->full_map[map->line - 1][i] != '1')
-			{
-				ft_printf("Map is not closed !\n");
-				exit(EXIT_FAILURE);
-			}
+		{
+			ft_printf("Map is not closed !\n");
+			exit(EXIT_FAILURE);
+		}
 	}
-	j = - 1;
+	j = -1;
 	while (map->full_map[++j])
 	{
 		if (map->full_map[j][0] != '1'
 			|| map->full_map[j][size_line - 1] != '1')
-			{
-				ft_printf("Map is not closed !\n");
-				exit(EXIT_FAILURE);
-			}
+		{
+			ft_printf("Map is not closed !\n");
+			exit(EXIT_FAILURE);
+		}
 	}
 }

@@ -6,7 +6,7 @@
 #    By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 15:23:21 by nihamila          #+#    #+#              #
-#    Updated: 2023/09/12 17:28:27 by nisarhamila      ###   ########.fr        #
+#    Updated: 2023/09/17 00:04:08 by nisarhamila      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS = 	src/main.c \
 		src/fload_fill.c\
 		src/mlx.c\
 		src/mlx_utils.c\
+		src/move.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -31,7 +32,7 @@ MAKE_EXT 		= @make -s --no-print-directory -C
 OBJ 			= ${OBJS}
 UNAME_S			= $(shell uname -s)
 
-LIBS 			= -L ./libft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit 
+LIBS 			= -L ./libft -lft -framework OpenGL -framework AppKit 
 
 COMPIL			= $(CC) $(CFLAGS) ${OBJ} libmlx.a $(LIBS) -o $(NAME)
 

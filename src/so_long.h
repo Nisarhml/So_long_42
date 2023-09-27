@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:24:26 by nihamila          #+#    #+#             */
-/*   Updated: 2023/09/12 17:08:45 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/09/27 19:16:36 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ void	put_wall(t_map *map, int y, int x);
 void	put_images_in_game(t_map *map);
 int		adding_in_graphics(t_map *map);
 void	init_window(t_map *map);
-
+void	player_position(t_map *map);
+int		collect_items(t_map *map);
+int		game_over(t_map *map);
+void	print_moves(t_map *map);
+int		key_pressed(int key, t_map *map);
+void	init_game(t_map *map);
 
 # endif

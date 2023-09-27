@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nihamila <nihamila@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 16:37:54 by nihamila          #+#    #+#             */
-/*   Updated: 2023/04/05 18:17:42 by nihamila         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:05:26 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_countnbr(int n)
+static int	ft_countnbr(int n)
 {
 	int	count;
 

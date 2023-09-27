@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:15:53 by nihamila          #+#    #+#             */
-/*   Updated: 2023/08/31 22:53:50 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/09/27 19:09:20 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 int	check_if_ber(int argc, char **argv)
 {
 	int	fd;
-	int size;
+	int	size;
 
-	
 	if (argc != 2)
 	{
 		ft_printf("invalid number of arguments\n");
@@ -38,14 +37,14 @@ int	check_if_ber(int argc, char **argv)
 		return (0);
 	}
 	close(fd);
-	return (0);
+	return (1);
 }
 
 void	count_line(t_map *map, char *str)
 {
 	int		fd;
 	char	*f_line;
-	
+
 	fd = open(str, O_RDONLY);
 	f_line = get_next_line(fd);
 	if (!f_line)
@@ -61,7 +60,6 @@ void	count_line(t_map *map, char *str)
 		map->line++;
 		f_line = get_next_line(fd);
 	}
-	//ft_printf("%d\n", map->line);
 	close(fd);
 }
 
@@ -77,7 +75,7 @@ void	init_map(t_map *map, char *str)
 	while (i < map->line)
 	{
 		i++;
-		map->full_map[i] = get_next_line(fd); 
+		map->full_map[i] = get_next_line(fd);
 	}
 	map->full_map[i] = 0;
 	close(fd);
@@ -88,19 +86,19 @@ void	check_valid_char(t_map *map)
 	int	i;
 	int	j;
 
-	i = - 1;
+	i = -1;
 	while (++i < map->line)
 	{
-		j = - 1;
+		j = -1;
 		while (++j < map->count_char)
 		{
 			if (map->full_map[i][j] != 'E' && map->full_map[i][j] != 'C'
 				&& map->full_map[i][j] != 'P' && map->full_map[i][j] != '1'
 				&& map->full_map[i][j] != '0')
-				{
-					ft_printf("invalid character, please check your map !\n");
-					exit(EXIT_FAILURE);
-				}
+			{
+				ft_printf("invalid character, please check your map !\n");
+				exit(EXIT_FAILURE);
+			}
 		}
 	}
 }
