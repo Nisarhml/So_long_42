@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:51:23 by nihamila          #+#    #+#             */
-/*   Updated: 2023/12/06 17:46:57 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/06 22:02:15 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	main(int argc, char **argv)
 	mlx_hook(map.win_ptr, 17, 0, game_over, &map);
 	mlx_loop_hook(map.mlx_ptr, adding_in_graphics, &map);
 	mlx_loop(map.mlx_ptr);
-	system("leaks so_long");
 	free(map.mlx_ptr);
 	return (EXIT_SUCCESS);
 }
