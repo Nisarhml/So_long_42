@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:15:53 by nihamila          #+#    #+#             */
-/*   Updated: 2023/09/27 19:09:20 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/06 17:50:30 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	init_map(t_map *map, char *str)
 	int	i;
 
 	fd = open(str, O_RDONLY);
-	map->full_map = malloc((sizeof(char *) + 1) * map->line);
+	map->full_map = malloc(sizeof(char *) * (map->line + 1));
 	i = 0;
 	map->full_map[i] = get_next_line(fd);
 	while (i < map->line)
@@ -77,7 +77,6 @@ void	init_map(t_map *map, char *str)
 		i++;
 		map->full_map[i] = get_next_line(fd);
 	}
-	map->full_map[i] = 0;
 	close(fd);
 }
 

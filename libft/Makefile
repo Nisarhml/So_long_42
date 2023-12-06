@@ -6,7 +6,7 @@
 #    By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 13:06:01 by nihamila          #+#    #+#              #
-#    Updated: 2023/08/30 17:24:05 by nisarhamila      ###   ########.fr        #
+#    Updated: 2023/12/06 17:16:31 by nisarhamila      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ SRCS_LIBFT = $ ft_isdigit.c ft_isprint.c ft_atoi.c ft_tolower.c ft_bzero.c \
 SRCS_B =    ft_lstadd_front.c ft_lstnew.c ft_lstsize.c ft_lstlast.c \
             ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
 
-OBJS = $(SRCS_LIBFT:.c=.o)
-OBJS_B = $(SRCS_B:.c=.o)
+collectS = $(SRCS_LIBFT:.c=.o)
+collectS_B = $(SRCS_B:.c=.o)
 NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -37,16 +37,16 @@ all : ${NAME}
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-$(NAME): ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+$(NAME): ${collectS}
+		ar rcs ${NAME} ${collectS}
 
-bonus:    ${OBJS} ${OBJS_B}
-		ar rcs ${NAME} ${OBJS} ${OBJS_B}
+bonus:    ${collectS} ${collectS_B}
+		ar rcs ${NAME} ${collectS} ${collectS_B}
 
 all:    ${NAME}
 
 clean:
-		${RM} ${OBJS} ${OBJS_B}
+		${RM} ${collectS} ${collectS_B}
 
 fclean:    clean
 		${RM} ${NAME}

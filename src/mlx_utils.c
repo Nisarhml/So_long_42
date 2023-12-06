@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:51:37 by nisarhamila       #+#    #+#             */
-/*   Updated: 2023/09/27 19:42:35 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/06 17:40:22 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,10 @@ void	player_position(t_map *map)
 	}
 }
 
-int	collect_items(t_map *map)
-{
-	int	x;
-	int	y;
-
-	y = -1;
-	map->collect = 0;
-	while (map->full_map[++y])
-	{
-		x = -1;
-		while (map->full_map[y][++x])
-		{
-			if (map->full_map[y][x] == 'C')
-				map->collect++;
-		}
-	}
-	return (map->collect);
-}
-
 int	game_over(t_map *map)
 {
 	free(map->full_map);
+	free(map->cpy_full_map);
 	mlx_destroy_image(map->mlx_ptr, map->wall);
 	mlx_destroy_image(map->mlx_ptr, map->floor);
 	mlx_destroy_image(map->mlx_ptr, map->player);

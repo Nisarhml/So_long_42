@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nihamila <nihamila@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 18:20:38 by nihamila          #+#    #+#             */
-/*   Updated: 2023/04/01 13:20:05 by nihamila         ###   ########.fr       */
+/*   Updated: 2023/12/06 21:32:50 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (ptr[i] == (unsigned char)c)
 			return ((void *) ptr + i);
-			i++;
+		i++;
 	}
 	return (0);
 }

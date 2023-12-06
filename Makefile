@@ -6,7 +6,7 @@
 #    By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 15:23:21 by nihamila          #+#    #+#              #
-#    Updated: 2023/09/17 00:04:08 by nisarhamila      ###   ########.fr        #
+#    Updated: 2023/12/06 17:16:31 by nisarhamila      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,23 +21,24 @@ SRCS = 	src/main.c \
 		src/mlx.c\
 		src/mlx_utils.c\
 		src/move.c\
+		src/move_utils.c\
 
-OBJS = $(SRCS:.c=.o)
+collectS = $(SRCS:.c=.o)
 
 ######################### * C O M P I L A T I O N * ##############################
 CC 				= gcc
 CFLAGS 			= -Werror -Wall -Wextra
 RM 				= rm -rf
 MAKE_EXT 		= @make -s --no-print-directory -C
-OBJ 			= ${OBJS}
+collect 			= ${collectS}
 UNAME_S			= $(shell uname -s)
 
 LIBS 			= -L ./libft -lft -framework OpenGL -framework AppKit 
 
-COMPIL			= $(CC) $(CFLAGS) ${OBJ} libmlx.a $(LIBS) -o $(NAME)
+COMPIL			= $(CC) $(CFLAGS) ${collect} libmlx.a $(LIBS) -o $(NAME)
 
 ################################# * R U L E S * #####################################
-$(NAME):	${OBJ}
+$(NAME):	${collect}
 			@printf $(blue)
 			@printf "\n"
 			@printf $(magenta)
@@ -55,7 +56,7 @@ all : $(NAME)
 
 clean:
 			$(MAKE_EXT) ./libft bonus clean
-			@${RM} ${OBJ} 
+			@${RM} ${collect} 
 			@printf $(yellow)
 			@echo "🗑  $(GRE)Supression des fichiers binaires (.o).$(EOC) 🗑"
 			@printf $(reset)

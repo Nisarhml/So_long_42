@@ -6,18 +6,11 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:51:23 by nihamila          #+#    #+#             */
-/*   Updated: 2023/09/27 19:31:38 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/06 17:46:57 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	ft_exit(t_map *map)
-{
-	mlx_destroy_window(map->mlx_ptr, map->win_ptr);
-	free(map->mlx_ptr);
-	exit(EXIT_FAILURE);
-}
 
 int	main(int argc, char **argv)
 {
@@ -40,7 +33,7 @@ int	main(int argc, char **argv)
 	init_window(&map);
 	adding_in_graphics(&map);
 	mlx_hook(map.win_ptr, 2, 0, key_pressed, &map);
-	mlx_hook(map.win_ptr, 17, 0, ft_exit, &map);
+	mlx_hook(map.win_ptr, 17, 0, game_over, &map);
 	mlx_loop_hook(map.mlx_ptr, adding_in_graphics, &map);
 	mlx_loop(map.mlx_ptr);
 	system("leaks so_long");

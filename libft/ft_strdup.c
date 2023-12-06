@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 14:27:08 by nihamila          #+#    #+#             */
-/*   Updated: 2023/08/30 15:17:03 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/06 21:31:40 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strcpy(char *dest, const char *src)
 char	*ft_strdup(const char *src)
 {
 	char	*str;
-	
+
 	str = malloc(sizeof(const char) * ft_strlen(src) + 1);
 	if (str == 0)
 		return (NULL);

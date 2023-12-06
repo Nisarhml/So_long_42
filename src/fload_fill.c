@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 13:51:24 by nisarhamila       #+#    #+#             */
-/*   Updated: 2023/09/27 19:07:01 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/06 17:37:57 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	copy_map(t_map *map, char *str)
 	int	j;
 
 	i = open(str, O_RDONLY);
-	map->cpy_full_map = malloc((sizeof(char *) + 1) * map->line);
+	map->cpy_full_map = malloc(sizeof(char *) * (map->line + 1));
 	j = 0;
 	map->cpy_full_map[j] = get_next_line(i);
 	while (j < map->line)
@@ -74,7 +74,8 @@ void	check_after_fill(t_map *map)
 		j = 0;
 		while (map->cpy_full_map[i][++j])
 		{
-			if (map->cpy_full_map[i][j] == 'C')
+			if (map->cpy_full_map[i][j] == 'C' ||
+				map->cpy_full_map[i][j] == 'E')
 			{
 				ft_printf("invalid path !\n");
 				exit(EXIT_FAILURE);
