@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:51:49 by nisarhamila       #+#    #+#             */
-/*   Updated: 2023/12/06 22:02:35 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/08 00:52:30 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,8 @@ void	put_images_in_game(t_map *map)
 	}
 }
 
-int	adding_in_graphics(t_map *map)
+int	adding_in_graphics(t_map *map, int i, int j)
 {
-	int	i;
-	int	j;
-
 	put_images_in_game(map);
 	i = -1;
 	while (map->full_map[++i])
@@ -68,15 +65,16 @@ int	adding_in_graphics(t_map *map)
 		{
 			mlx_put_image_to_window(map->mlx_ptr,
 				map->win_ptr, map->floor, j * 64, i * 64);
+			if (map->full_map[i][j] == 'E' ||
+				(map->full_map[i][j] == 'P' && map->is_in_exit == 1))
+				mlx_put_image_to_window(map->mlx_ptr,
+					map->win_ptr, map->exit, j * 64, i * 64);
 			if (map->full_map[i][j] == '1')
 				put_wall(map, j, i);
 			else if (map->full_map[i][j] == 'C')
 				put_items(map, j, i);
 			else if (map->full_map[i][j] == 'P')
 				put_player(map, j, i);
-			else if (map->full_map[i][j] == 'E')
-				mlx_put_image_to_window(map->mlx_ptr,
-					map->win_ptr, map->exit, j * 64, i * 64);
 			print_moves(map);
 		}
 	}

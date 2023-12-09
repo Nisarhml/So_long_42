@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:08:11 by nisarhamila       #+#    #+#             */
-/*   Updated: 2023/12/06 22:02:45 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/07 23:00:18 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	init_game(t_map *map)
 {
 	map->line = 0;
+	map->is_in_exit = 0;
 	map->count_char = 0;
 	map->player_x = 0;
 	map->player_y = 0;

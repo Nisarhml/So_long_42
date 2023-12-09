@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:24:26 by nihamila          #+#    #+#             */
-/*   Updated: 2023/12/06 22:03:09 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/08 00:48:58 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_map {
 	int		player_x;
 	int		player_y;
 	int		moves;
+	int		is_in_exit;
 
 	void	*mlx_ptr;
 	void	*win_ptr;
@@ -55,7 +56,7 @@ void	put_player(t_map *map, int y, int x);
 void	put_items(t_map *map, int y, int x);
 void	put_wall(t_map *map, int y, int x);
 void	put_images_in_game(t_map *map);
-int		adding_in_graphics(t_map *map);
+int		adding_in_graphics(t_map *map, int i, int j);
 void	init_window(t_map *map);
 void	player_position(t_map *map);
 int		game_over(t_map *map);

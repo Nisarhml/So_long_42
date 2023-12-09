@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:51:23 by nihamila          #+#    #+#             */
-/*   Updated: 2023/12/06 22:02:15 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/08 23:27:33 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	check_after_fill(&map);
 	player_position(&map);
 	init_window(&map);
-	adding_in_graphics(&map);
+	adding_in_graphics(&map, 0, 0);
 	mlx_hook(map.win_ptr, 2, 0, key_pressed, &map);
 	mlx_hook(map.win_ptr, 17, 0, game_over, &map);
 	mlx_loop_hook(map.mlx_ptr, adding_in_graphics, &map);
