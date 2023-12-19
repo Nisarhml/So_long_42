@@ -6,11 +6,12 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:51:37 by nisarhamila       #+#    #+#             */
-/*   Updated: 2023/12/06 22:02:27 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/19 16:48:39 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
 void	init_window(t_map *map)
 {

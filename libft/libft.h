@@ -6,15 +6,15 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:05:50 by nihamila          #+#    #+#             */
-/*   Updated: 2023/12/06 21:34:14 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/19 15:44:23 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include "./get_next_line/get_next_line_bonus.h"
-#include "./ft_printf/ft_printf.h"
+# include "./get_next_line/get_next_line_bonus.h"
+# include "./ft_printf/ft_printf.h"
 
 # include <stdlib.h>
 # include <unistd.h>

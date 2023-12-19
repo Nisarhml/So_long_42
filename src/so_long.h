@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:24:26 by nihamila          #+#    #+#             */
-/*   Updated: 2023/12/08 00:48:58 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/19 16:49:00 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <fcntl.h>
 # include "mlx.h"
 
-typedef struct s_map {
+typedef struct s_map
+{
 	char	**full_map;
 	char	**cpy_full_map;
 	int		line;
@@ -64,5 +65,10 @@ void	print_moves(t_map *map);
 int		key_pressed(int key, t_map *map);
 void	init_game(t_map *map);
 int		count_collect(t_map *map);
+void	init_move(t_map *map, int i, int j);
+int		keyboard_up(t_map *map, int move, int i, int j);
+int		keyboard_down(t_map *map, int move, int i, int j);
+int		keyboard_right(t_map *map, int move, int i, int j);
+int		keyboard_left(t_map *map, int move, int i, int j);
 
 #endif

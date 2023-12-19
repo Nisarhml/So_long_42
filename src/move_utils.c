@@ -6,7 +6,7 @@
 /*   By: nisarhamila <nisarhamila@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:08:11 by nisarhamila       #+#    #+#             */
-/*   Updated: 2023/12/07 23:00:18 by nisarhamila      ###   ########.fr       */
+/*   Updated: 2023/12/19 15:37:27 by nisarhamila      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,20 @@ int	count_collect(t_map *map)
 		y++;
 	}
 	return (collect);
+}
+
+int	key_pressed(int key, t_map *map)
+{
+	if (key == 53)
+		game_over(map);
+	else if (key == 1 || key == 125)
+		keyboard_up(map, key, map->player_x, map->player_y);
+	else if (key == 13 || key == 126)
+		keyboard_down(map, key, map->player_x, map->player_y);
+	else if (key == 0 || key == 123)
+		keyboard_left(map, key, map->player_x, map->player_y);
+	else if (key == 2 || key == 124)
+		keyboard_right(map, key, map->player_x, map->player_y);
+	adding_in_graphics(map, 0, 0);
+	return (EXIT_SUCCESS);
 }
